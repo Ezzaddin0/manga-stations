@@ -2,10 +2,10 @@
 import React from 'react'
 import {Card, CardHeader, CardBody, CardFooter, Label, Input, Textarea, Button} from "@nextui-org/react";
 
-export const metadata = {
-  title: 'contact',
-  description: 'About Manga Stations',
-}
+// export const metadata = {
+//   title: 'contact',
+//   description: 'About Manga Stations',
+// }
 
 export default function page() {
   return (
