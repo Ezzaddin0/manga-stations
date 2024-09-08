@@ -26,3 +26,7 @@ body {
 .firebase-emulator-warning{
   display: none;
 }
+
+.alternate {
+  animation-direction: alternate;
+}

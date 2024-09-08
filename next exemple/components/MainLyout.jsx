@@ -2,6 +2,7 @@
 import NextProvider from "@/components/providers/NextProvider"
 import Category from "@/components/MangaList/Category"
 import NavbarComponent from "@/components/Navbar"
+import Footer from "@/components/Footer"
 
 const MainLayout = ({ children }) => {
 
@@ -18,6 +19,7 @@ const MainLayout = ({ children }) => {
                             <Category />
                         </NavbarComponent>
                         {children}
+                        <Footer />
                     </div>
                 </NextProvider>
             </body>

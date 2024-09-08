@@ -1,11 +1,12 @@
 import Link from "next/link"
 import ZoomImages from "@/components/Manga/ZoomImages"
+import Chapters from "../Chapters"
 
-const PagesGridList = ({ chapterList, id, ch }) => {
+const PagesGridList = ({ chapterList, id, ch }) => {        
 
     return (
         <div className="relative space-y-4">
-            <div className=" z-10 top-0 right-0  w-full flex gap-1 flex-row h-max overflow-x-scroll">
+            {/* <div className=" z-10 top-0 right-0  w-full flex gap-1 flex-row h-max overflow-x-scroll">
                 {chapterList.chapterListIds.reverse().map((val) => (
                     <Link
                         href={`/manga/${id}/${val.id}`}
@@ -13,8 +14,10 @@ const PagesGridList = ({ chapterList, id, ch }) => {
                         {val.name}
                     </Link>
                 ))}
-            </div>
-            <div className="h-max lg:h-[65svh] w-full overflow-y-scroll">
+            </div> */}
+
+            <Chapters chapterList={chapterList.chapterListIds.reverse()} id={id} />
+            <div className="h-max lg:h-[165svh] w-full overflow-y-scroll">
                 <ZoomImages images={chapterList.images} />
             </div>
         </div>

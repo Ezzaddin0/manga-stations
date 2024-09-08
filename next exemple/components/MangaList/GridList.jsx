@@ -5,6 +5,7 @@ import { useLayoutEffect, useState } from "react"
 import { redirectUrlGenerator } from "@/hooks/utils/redirectUrlGenerator"
 import Card from "./Card"
 import { Pagination } from "@nextui-org/react"
+import { mangaToRemove } from "../../hooks/utils/removedData"
 
 const List = ({ dataList, metaData }) => {
 
@@ -21,7 +22,7 @@ const List = ({ dataList, metaData }) => {
 
             const data = await useMangaList(redirectUrlGenerator(searchParams, metaData, "", ""))
             setTotalMangaPages(data.metaData.totalPages)
-            setMangaList(data.mangaList)
+            setMangaList(data.mangaList.filter((category) => !mangaToRemove.includes(category.id)))
 
         } catch (e) {
             alert("Something go wrong " + e)
@@ -40,15 +41,15 @@ const List = ({ dataList, metaData }) => {
 
     return (
         <>
-            <div className="gap-3 h-max w-full grid lg:grid-cols-5 md:grid-cols-3 grid-cols-2 p-4 bg-transparent ">
+            <div className="gap-3 h-max w-full grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 p-4 bg-transparent ">
                 {mangeList && mangeList.map((val, index) => (<Card val={val} index={index + 1} />))}
-                <div className="col-span-full flex justify-end pt-3 pr-4">
+                {/* <div className="col-span-full flex justify-center pt-3 pr-4">
                     <Pagination total={totalMangaPages} variant="light" classNames={{
                         item: "w-8 h-8 text-small bg-transparent text-white hover:text-black",
                         cursor:
                             "w-8 h-8 text-small bg-red-400",
                     }} onChange={(e) => handleRedirect("page", e)} />
-                </div>
+                </div> */}
             </div>
             {loading &&
                 <div style={{ zIndex: 99999 }} className="w-screen h-[100svh] fixed top-0 left-0 backdrop-blur-xl flex items-center justify-center z-50">

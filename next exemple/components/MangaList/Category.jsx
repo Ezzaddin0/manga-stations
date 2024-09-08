@@ -6,9 +6,10 @@ import { NavbarItem, Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Butt
 import useMangaList from "@/hooks/manga/useMangaList";
 
 const Category = () => {
-
     const searchParams = useSearchParams()
     const router = useRouter()
+
+    const categoriesToRemove = ["Erotica", "Pornographic"]; // Add categories to exclude here
 
     const [searchParamsStates, setSearchParamsState] = useState({
         category: searchParams.get("category"),
@@ -25,19 +26,17 @@ const Category = () => {
                 [f]: e
             }
         })
-        router.push(redirectUrlGenerator(searchParams, metaData, f, e))
+        // router.push(redirectUrlGenerator(searchParams, metaData, f, e)) // i am off this line
     }
 
     const loadData = async () => {
         const mangaDataReq = await useMangaList("")
         setMetaData(mangaDataReq.metaData)
-        console.log(mangaDataReq.metaData)
-
     }
 
     useEffect(() => {
         loadData()
-    }, [])
+    }, [])    
 
     return (
         metaData && <NavbarItem className="gap-1.5 w-full hidden lg:flex justify-end items-center">

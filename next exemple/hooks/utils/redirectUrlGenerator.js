@@ -7,7 +7,7 @@ export const redirectUrlGenerator = (searchParams, metaData, f, e) => {
         lastQuery[f] = e
     }
     
-    const url = `/${jsonToUrl(lastQuery)}`
+    const url = `mangas/${jsonToUrl(lastQuery)}` // change to mangas
 
     return url
 }

@@ -11,6 +11,20 @@ module.exports = {
   ],
   theme: {
     extend: {
+      keyframes: {
+        slideLeft: {
+          '0%': { transform: 'translateX(10%)' },
+          '100%': { transform: 'translateX(-40%)' },
+        },
+        slideRight: {
+          '0%': { transform: 'translateX(-10%)' },
+          '100%': { transform: 'translateX(40%)' },
+        },
+      },
+      animation: {
+        'slide-left': 'slideLeft 90s ease-in-out infinite',
+        'slide-right': 'slideRight 90s ease-in-out infinite',
+      },
     },
   },
   darkMode: "class",

@@ -14,7 +14,6 @@ export const generateMetadata = async ({ params }) => {
 const MangaPage = async ({ params }) => {
 
     const mangaData = await useManga(params.id)
-
     return (
         <ChapterGridList
             id={params.id}

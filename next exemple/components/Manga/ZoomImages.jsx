@@ -6,7 +6,7 @@ export default function ZoomImages({images}) {
         <TransformWrapper>
             <TransformComponent>
                 {images.map((val) => (
-                    <img src={val.image} alt={val.title} className="w-full m-1 h-max" />
+                    <img key={val.title} src={val.image} alt={val.title} className="w-full m-1 h-max" />
                 ))}
             </TransformComponent>
         </TransformWrapper>
